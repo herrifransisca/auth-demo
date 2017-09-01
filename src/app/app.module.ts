@@ -50,6 +50,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
     AuthService,
     AuthGuard,
     AdminAuthGuard,
+    AUTH_PROVIDERS,
 
     // For creating a mock back-end. You don't need these in a real app. 
     fakeBackendProvider,
