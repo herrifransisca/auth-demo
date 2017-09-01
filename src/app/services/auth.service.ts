@@ -8,7 +8,15 @@ export class AuthService {
 
   login(credentials) { 
    return this.http.post('/api/authenticate', 
-      JSON.stringify(credentials));
+     JSON.stringify(credentials))
+     .map(response => {
+       let result = response.json();
+       if (result && result.token) {
+         localStorage.setItem('token', result.token);
+         return true;
+       };
+       return false;
+     });
   }
 
   logout() { 
