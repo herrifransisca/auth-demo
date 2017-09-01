@@ -27,5 +27,14 @@ export class AuthService {
   isLoggedIn() {
     return tokenNotExpired();
   }
+
+  get currentUser() {
+    let token = localStorage.getItem('token');
+    if (!token) return null;
+
+    return new JwtHelper().decodeToken(token);
+
+    // for testing, change token value @fake-backend.ts
+  }
 }
 
